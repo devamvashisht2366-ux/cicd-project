@@ -8,7 +8,6 @@ pipeline {
 
     environment {
         DOCKERHUB_REPO = 'devamops/virtual-mouse-keyboard'// Replace with your Docker Hub username/repository.
-        DOCKERHUB_REPO = 'YOUR_DOCKERHUB_USERNAME/virtual-mouse-keyboard'
         DOCKERHUB_CREDENTIALS = 'dockerhub-creds'
         K8S_NAMESPACE = 'default'
         DEPLOYMENT_NAME = 'virtual-mouse-keyboard'
