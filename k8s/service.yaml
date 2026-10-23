@@ -1,0 +1,13 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: virtual-mouse-keyboard
+spec:
+  type: ClusterIP
+  selector:
+    app: virtual-mouse-keyboard
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
