@@ -1,0 +1,6 @@
+# Install separately on a desktop environment to run hand.py
+opencv-python
+mediapipe
+numpy
+pynput
+pyautogui
