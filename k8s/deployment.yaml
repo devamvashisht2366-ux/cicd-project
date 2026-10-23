@@ -1,0 +1,41 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: virtual-mouse-keyboard
+  labels:
+    app: virtual-mouse-keyboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: virtual-mouse-keyboard
+  template:
+    metadata:
+      labels:
+        app: virtual-mouse-keyboard
+    spec:
+      containers:
+        - name: virtual-mouse-keyboard
+          image: DOCKERHUB_USERNAME/virtual-mouse-keyboard:latest
+          ports:
+            - containerPort: 5000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
