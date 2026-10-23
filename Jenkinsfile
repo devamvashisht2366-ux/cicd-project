@@ -30,7 +30,7 @@ pipeline {
             steps {
                 sh '''
                     python3 --version
-                    python3 -m compileall -q app.py hand.py track.py tests
+                    python3 -m compileall -q app.py hand.py track.py test_app.py
                     python3 -m venv .ci-venv
                     . .ci-venv/bin/activate
                     pip install --upgrade pip
